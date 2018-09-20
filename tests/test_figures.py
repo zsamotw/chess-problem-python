@@ -47,17 +47,16 @@ class TestFigures:
         assert all(res_table)
 
     def test_queen_is_attack_false(self):
-        fields = [(4, 3), (5, 4), (4, 5), (3, 4), (4, 2), (3, 6), (2, 3),
-                  (6, 3), (5, 6), (3, 7)]
+        fields = [(1, 2), (2, 3), (3, 2), (5, 2), (6, 5), (5, 7), (2, 7)]
         res_table = [not self.q.is_attack(*field) for field in fields]
         assert all(res_table)
 
     def test_king_is_attack_true(self):
         fields = [(x, y) for x in range(3, 6) for y in range(3, 6)]
-        res_table = [not self.k.is_attack(*field) for field in fields]
+        res_table = [self.k.is_attack(*field) for field in fields]
         assert all(res_table)
 
     def test_king_is_attack_false(self):
         fields = [(2, 2), (5, 2), (4, 2), (4, 6), (6, 6)]
-        res_table = [not self.q.is_attack(*field) for field in fields]
+        res_table = [not self.k.is_attack(*field) for field in fields]
         assert all(res_table)

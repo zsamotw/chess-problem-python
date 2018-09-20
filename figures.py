@@ -4,7 +4,7 @@ class Rook:
         self.y = y
 
     def is_attack(self, x, y):
-        pass
+        return self.x == x or self.y == y
 
 
 class Knight:
@@ -13,7 +13,9 @@ class Knight:
         self.y = y
 
     def is_attack(self, x, y):
-        pass
+        return (abs(self.x - x) == 1
+                and abs(self.y - y) == 2) or (abs(self.x - x) == 2
+                                              and abs(self.y - y) == 1)
 
 
 class Bishop:
@@ -22,7 +24,7 @@ class Bishop:
         self.y = y
 
     def is_attack(self, x, y):
-        pass
+        return abs(self.x - x) == abs(self.y - y)
 
 
 class Queen:
@@ -31,7 +33,8 @@ class Queen:
         self.y = y
 
     def is_attack(self, x, y):
-        pass
+        return (
+            abs(self.x - x) == abs(self.y - y)) or self.x == x or self.y == y
 
 
 class King:
@@ -40,4 +43,4 @@ class King:
         self.y = y
 
     def is_attack(self, x, y):
-        pass
+        return abs(self.x - x) <= 1 and abs(self.y - y) <= 1
