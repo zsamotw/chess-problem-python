@@ -26,9 +26,9 @@ class Rook(Figure):
 
 class Knight(Figure):
     def is_attack(self, x, y):
-        return (abs(self.x - x) == 1
-                and abs(self.y - y) == 2) or (abs(self.x - x) == 2
-                                              and abs(self.y - y) == 1)
+        return (abs(self.x - x) == 1 and abs(self.y - y) == 2) or (
+            abs(self.x - x) == 2 and abs(self.y - y) == 1) or (self.x == x
+                                                               and self.y == y)
 
     def __repr__(self):
         return 'N({}, {})'.format(self.x, self.y)
