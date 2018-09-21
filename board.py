@@ -3,6 +3,25 @@ class Board:
         self.figures = set()
         self.size = size
 
+    def __repr__(self):
+        return 'Board {} x {} figures: {}'.format(self.size, self.size,
+                                                  self.figures)
+
+    def __eq__(self, other):
+        if isinstance(other, Board):
+            return ((self.figures == other.figures)
+                    and (self.size == other.size))
+        else:
+            return False
+
+    def __ne__(self, other):
+        return (not self.__eq__(other))
+
+    def __hash__(self):
+        to_code = self.size + sum([hash(f) for f in self.figures])
+        # to_code = '{}{}{}'.format(type(self), self.figures, self.size)
+        return hash(to_code)
+
     def is_valid(self):
         return self.size > 0 and len(self.figures) < self.size * self.size
 
@@ -23,20 +42,3 @@ class Board:
                     board.figures = figures
                     boards.add(board)
         return boards
-
-    def __repr__(self):
-        return 'Board {} x {} figures: {}'.format(self.size, self.size,
-                                                  self.figures)
-
-    def __eq__(self, other):
-        if isinstance(other, Board):
-            return ((self.figures == other.figures)
-                    and (self.size == other.size))
-        else:
-            return False
-
-    def __ne__(self, other):
-        return (not self.__eq__(other))
-
-    def __hash__(self):
-        return hash(self.__repr__())

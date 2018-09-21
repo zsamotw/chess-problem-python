@@ -31,7 +31,7 @@ class Knight(Figure):
                                               and abs(self.y - y) == 1)
 
     def __repr__(self):
-        return 'Kn({}, {})'.format(self.x, self.y)
+        return 'N({}, {})'.format(self.x, self.y)
 
 
 class Bishop(Figure):
