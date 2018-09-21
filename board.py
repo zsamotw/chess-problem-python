@@ -1,6 +1,6 @@
 class Board:
     def __init__(self, size):
-        self.figures = {}
+        self.figures = set()
         self.size = size
 
     def is_valid(self):

@@ -56,4 +56,4 @@ class King(Figure):
         return abs(self.x - x) <= 1 and abs(self.y - y) <= 1
 
     def __repr__(self):
-        return 'B({}, {})'.format(self.x, self.y)
+        return 'K({}, {})'.format(self.x, self.y)
