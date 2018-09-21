@@ -18,7 +18,12 @@ class Board:
                 figure = figure_class(x, y)
                 if self.is_safe_for(figure):
                     board = Board(self.size)
-                    figures = self.figures[:].append(figure)
+                    figures = self.figures[:]
+                    figures.append(figure)
                     board.figures = figures
                     boards.add(board)
         return boards
+
+    def __repr__(self):
+        return 'Board {} x {} figures: {}'.format(self.size, self.size,
+                                                  self.figures)
