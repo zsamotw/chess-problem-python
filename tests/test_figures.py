@@ -16,7 +16,7 @@ class TestFigures:
         assert self.r.is_attack(8, 4)
 
     def test_Rook_is_attack_false(self):
-        assert not self.r.is_attack(1, 2)
+        assert self.r.is_attack(1, 2) is False
 
     def test_Knight_is_attack_true(self):
         fields = [(3, 2), (5, 2), (2, 3), (6, 3), (2, 5), (6, 5), (3, 6), (5,
