@@ -1,6 +1,6 @@
 class Board:
     def __init__(self, size):
-        self.figures = []
+        self.figures = {}
         self.size = size
 
     def is_valid(self):
@@ -18,8 +18,8 @@ class Board:
                 figure = figure_class(x, y)
                 if self.is_safe_for(figure):
                     board = Board(self.size)
-                    figures = self.figures[:]
-                    figures.append(figure)
+                    figures = set(self.figures)
+                    figures.add(figure)
                     board.figures = figures
                     boards.add(board)
         return boards
@@ -27,3 +27,16 @@ class Board:
     def __repr__(self):
         return 'Board {} x {} figures: {}'.format(self.size, self.size,
                                                   self.figures)
+
+    def __eq__(self, other):
+        if isinstance(other, Board):
+            return ((self.figures == other.figures)
+                    and (self.size == other.size))
+        else:
+            return False
+
+    def __ne__(self, other):
+        return (not self.__eq__(other))
+
+    def __hash__(self):
+        return hash(self.__repr__())

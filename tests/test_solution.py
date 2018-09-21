@@ -8,12 +8,16 @@ class TestSolution:
         boards = solution(2, [Rook])
         assert len(boards) is 4
 
+    def test_solution_for_board_2_and_1_bishop_1_knight(self):
+        boards = solution(2, [Bishop, Knight])
+        assert len(boards) is 8
+
     def test_solution_for_board_3_and_2_kings_1_rook(self):
         boards = solution(3, [King, King, Rook])
         assert len(boards) is 4
 
     def test_solution_for_board_4_and_2_rooks_4_knight(self):
-        boards = solution(3, [Rook, Rook, Knight, Knight, Knight, Knight])
+        boards = solution(4, [Rook, Rook, Knight, Knight, Knight, Knight])
         assert len(boards) is 8
 
     def test_solution_for_board_3_and_2_kings_1_rook_fig(self):
