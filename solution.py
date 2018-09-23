@@ -1,6 +1,8 @@
 from board import Board
+from timer import timer
 
 
+@timer
 def solution(size, figure_classes):
     initial = Board(size)
     boards = {initial}

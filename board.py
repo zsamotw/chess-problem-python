@@ -1,3 +1,6 @@
+from timer import timer
+
+
 class Board:
     def __init__(self, size):
         self.figures = set()
