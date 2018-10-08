@@ -27,6 +27,8 @@ class Figure:
 
 
 class Rook(Figure):
+    __slots__ = ['__x', '__y']
+
     def is_attack(self, x, y):
         return self.x == x or self.y == y
 
@@ -38,6 +40,8 @@ class Rook(Figure):
 
 
 class Knight(Figure):
+    __slots__ = ['__x', '__y']
+
     def is_attack(self, x, y):
         return (abs(self.x - x) == 1 and abs(self.y - y) == 2) or (
             abs(self.x - x) == 2 and abs(self.y - y) == 1) or (self.x == x
@@ -51,6 +55,8 @@ class Knight(Figure):
 
 
 class Bishop(Figure):
+    __slots__ = ['__x', '__y']
+
     def is_attack(self, x, y):
         return abs(self.x - x) == abs(self.y - y)
 
@@ -62,6 +68,8 @@ class Bishop(Figure):
 
 
 class Queen(Figure):
+    __slots__ = ['__x', '__y']
+
     def is_attack(self, x, y):
         return (
             abs(self.x - x) == abs(self.y - y)) or self.x == x or self.y == y
@@ -74,6 +82,8 @@ class Queen(Figure):
 
 
 class King(Figure):
+    __slots__ = ['__x', '__y']
+
     def is_attack(self, x, y):
         return abs(self.x - x) <= 1 and abs(self.y - y) <= 1
 

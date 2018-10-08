@@ -19,3 +19,4 @@ def solution(size, figure_classes):
     for board in boards:
         board.print_board(deepcopy(empty_board))
     print('There are: {} boards as result.'.format(len(boards)))
+    return boards
