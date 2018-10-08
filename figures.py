@@ -1,9 +1,17 @@
 class Figure:
-    __slots__ = ['x', 'y']
+    __slots__ = ['__x', '__y']
 
     def __init__(self, x, y):
-        self.x = x
-        self.y = y
+        self.__x = x
+        self.__y = y
+
+    @property
+    def x(self):
+        return self.__x
+
+    @property
+    def y(self):
+        return self.__y
 
     def __eq__(self, other):
         if isinstance(other, type(self)):
